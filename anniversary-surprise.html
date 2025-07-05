@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 1-Year Anniversary</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#ffdde1, #ee9ca7);
+      overflow-x: hidden;
+    }
+    .opening {
+      height: 100vh;
+      background: #ffccd5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+    }
+    .opening h1 {
+      font-size: 2.5rem;
+      color: #d00000;
+      margin-bottom: 20px;
+    }
+    .start-btn {
+      background: #ff4d6d;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .start-btn:hover {
+      background: #e60049;
+    }
+    .content {
+      display: none;
+      animation: fadeIn 1.5s ease-in forwards;
+      padding: 20px;
+      text-align: center;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+    .anniversary-title {
+      font-size: 3rem;
+      color: white;
+      margin-top: 30px;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px #ff4d6d; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ff4d6d; }
+    }
+    .message {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 1.2rem;
+      color: #444;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .cake-section img {
+      width: 200px;
+    }
+    .btn {
+      background: #ff4d6d;
+      color: white;
+      padding: 12px 25px;
+      font-size: 1rem;
+      margin-top: 15px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .gift-message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: white;
+    }
+    .hug {
+      width: 150px;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+<body>
+
+<div class="opening" id="opening">
+  <h1>Shhh... Jaaaanu, there's a surprise waiting for you 🎁</h1>
+  <button class="start-btn" onclick="startSurprise()">Tap to See</button>
+</div>
+
+<div class="content" id="mainContent">
+  <h1 class="anniversary-title">🎉 Happy 1 Year Anniversary 🎉</h1>
+
+  <img src="https://i.postimg.cc/BvynkxwK/couple-hug-cartoon.png" alt="Cartoon Hug" class="hug" />
+
+  <div class="message">
+    <h2>To the One Who Holds My Soul</h2>
+    <p>
+      From the moment you entered my life, everything changed.<br>
+      Your smile calms my storms, your presence feels like home.<br><br>
+      This one year wasn’t just time — it was magic, a story written in hearts and held in forever.<br><br>
+      You are the answer my soul whispered for…<br><br>
+      <strong>Happy 1-Year Anniversary, My Forever. 🥂</strong><br>
+      Here's to us — to love that never fades. ❤️
+    </p>
+  </div>
+
+  <div class="cake-section">
+    <img id="cake" src="https://i.postimg.cc/8Cjq6Ft5/birthday-cake-candles.gif" alt="Cake with candles" />
+    <br>
+    <button class="btn" onclick="blowCandles()">Blow Candles 🎂</button>
+    <button class="btn" onclick="cutCake()">Cut Cake 🍰</button>
+  </div>
+
+  <button class="btn" onclick="revealGift()">🎁 Open Gift</button>
+  <div class="gift-message" id="giftMessage">💌 Forever starts with us. I can't wait to make you mine, forever and always. 💍</div>
+</div>
+
+<audio id="bgMusic" loop>
+  <source src="https://www.fesliyanstudios.com/play-mp3/387" type="audio/mpeg">
+</audio>
+
+<script>
+  function startSurprise() {
+    document.getElementById("opening").style.display = "none";
+    document.getElementById("mainContent").style.display = "block";
+    document.getElementById("bgMusic").play();
+    confettiEffect();
+  }
+
+  function blowCandles() {
+    document.getElementById("cake").src = "https://i.postimg.cc/jqXW3X9p/cake-no-candle.png";
+  }
+
+  function cutCake() {
+    alert("🎉 Woohoo! The cake is cut! Time to celebrate! 🥂");
+  }
+
+  function revealGift() {
+    document.getElementById("giftMessage").style.display = "block";
+  }
+
+  function confettiEffect() {
+    for (let i = 0; i < 50; i++) {
+      let confetti = document.createElement("div");
+      confetti.innerHTML = "🎊";
+      confetti.style.position = "fixed";
+      confetti.style.top = Math.random() * 100 + "%";
+      confetti.style.left = Math.random() * 100 + "%";
+      confetti.style.fontSize = "2rem";
+      confetti.style.animation = "fall 3s ease-in-out forwards";
+      document.body.appendChild(confetti);
+    }
+  }
+</script>
+</body>
+</html>
